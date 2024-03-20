@@ -20,6 +20,16 @@ public class Stock {
         return nombres;
     }
 
+    public void getInfo (String nombreProducto) {
+        for (int i = 0; i < productos.size(); i++) {
+            Producto producto = productos.get(i);
+            if (nombreProducto.equals(producto.getNombre())){
+                producto.mostrar();
+            }
+
+        }
+    }
+
     // Agrega el producto a la lista de productos
     public void agregar (Producto producto) {
         productos.add(producto);
@@ -29,7 +39,7 @@ public class Stock {
     public void eliminar (String nombreProducto) {
         for (int i = 0; i < productos.size(); i++) {
             Producto producto = productos.get(i);
-            if (nombreProducto == producto.getNombre()) {
+            if (nombreProducto.equals(producto.getNombre())) {
                 int cantidad = producto.getCantidad();
                 if (cantidad > 0) {
                     producto.setCantidad(cantidad - 1);
